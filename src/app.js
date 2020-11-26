@@ -9,6 +9,10 @@ const forecast = require('./utils/forecast');
 
 const app = express();
 
+//we are accessing port number which is given by heroku
+//it will fail for local env so we are using 3000
+const port = process.env.PORT || 3000;
+
 //Define paths for express config
 
 //We use public directory for assets purpose like css,js,images etc so we metion the path of the folder
@@ -109,6 +113,7 @@ app.get('*', (req,res) => {
 
 
 //making express to start at port 3000
-app.listen(3000, () => {
+//we commented because we deployed in heroku so it will give the port number and it was dynamic in nature
+app.listen(port, () => {
     console.log('Server is up on port 3000');
 });
